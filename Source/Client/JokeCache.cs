@@ -35,7 +35,7 @@ public sealed class JokeCache : IJokeCache
     public ChuckNorrisJoke PreviousJoke()
     {
         m_CurrentIndex--;
-        if (m_CurrentIndex <= 0)
+        if (m_CurrentIndex < 0)
         {
             m_CurrentIndex = m_Jokes.Count - 1;
         }

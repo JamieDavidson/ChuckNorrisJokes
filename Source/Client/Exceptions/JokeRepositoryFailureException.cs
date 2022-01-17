@@ -5,7 +5,7 @@ namespace ChuckNorrisJokes.Client.Exceptions;
 public class JokeRepositoryFailureException : Exception
 {
     public JokeRepositoryFailureException()
-        : base("Failed to request joke")
+        : base("Failed to retrieve joke")
     { }
 
     public JokeRepositoryFailureException(string? message)

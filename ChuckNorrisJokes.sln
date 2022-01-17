@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChuckNorrisJokes.Console", "Source\Console\ChuckNorrisJokes.Console.csproj", "{93139B4C-058F-4ED3-ABAE-0AC045D19F66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChuckNorrisJokes.ConsoleProject", "Source\ConsoleProject\ChuckNorrisJokes.ConsoleProject.csproj", "{93139B4C-058F-4ED3-ABAE-0AC045D19F66}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChuckNorrisJokes.Client", "Source\Client\ChuckNorrisJokes.Client.csproj", "{FF8FE703-E72B-4E03-8E35-6867AAE68C04}"
 EndProject

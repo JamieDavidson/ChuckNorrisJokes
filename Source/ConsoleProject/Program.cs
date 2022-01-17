@@ -15,6 +15,9 @@ while (true)
 {
     var key = Console.ReadKey();
 
+    // Cheeky hack - Overwrite last character written in the console
+    // Seeing the "j" written in the console was annoying me!
+    Console.Write("\b \b");
     switch (key.KeyChar)
     {
         case 'j':

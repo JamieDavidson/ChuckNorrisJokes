@@ -13,6 +13,6 @@ internal sealed class ConsoleWriter : IConsoleWriter
 
         Console.WriteLine($"j - Get a random joke{Environment.NewLine}" +
                           $"p - Go back to previous joke{Environment.NewLine}" +
-                          $"n - Go to next joke{Environment.NewLine}");
+                          "n - Go to next joke");
     }
 }

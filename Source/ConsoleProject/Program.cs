@@ -3,29 +3,32 @@
 using ChuckNorrisJokes.Client;
 using ChuckNorrisJokes.ConsoleProject;
 
+void GetRandomJoke(IJokeRepository jokeRepository, IJokeCache jokeCache, IJokeWriter consoleJokeWriter)
+{
+    var joke = jokeRepository.GetRandomJoke().Result;
+    jokeCache.AddJoke(joke);
+    consoleJokeWriter.WriteCurrentJoke(joke);
+}
+
 const string apiUrl = "https://api.chucknorris.io/";
 
 var repository = new JokeRepository(apiUrl);
 var cache = new JokeCache();
 var writer = new ConsoleJokeWriter(cache);
 
-var firstJoke = repository.GetRandomJoke().Result;
-cache.AddJoke(firstJoke);
-writer.WriteCurrentJoke(firstJoke);
+GetRandomJoke(repository, cache, writer);
 
 while (true)
 {
     var key = Console.ReadKey();
 
     // Cheeky hack - Overwrite last character written in the console
-    // Seeing the "j" written in the console was annoying me!
+    // Seeing the "j" written in the console while waiting for network responses was annoying me!
     Console.Write("\b \b");
     switch (key.KeyChar)
     {
         case 'j':
-            var joke = repository.GetRandomJoke().Result;
-            cache.AddJoke(joke);
-            writer.WriteCurrentJoke(joke);
+            GetRandomJoke(repository, cache, writer);
             break;
         case 'p':
             writer.WriteCurrentJoke(cache.PreviousJoke());

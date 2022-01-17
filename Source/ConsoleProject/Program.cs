@@ -4,7 +4,7 @@ using ChuckNorrisJokes.Client;
 using ChuckNorrisJokes.ConsoleProject;
 
 var repository = new JokeRepository("https://api.chucknorris.io/");
-var writer = new ConsoleWriter();
+var writer = new ConsoleJokeWriter();
 var cache = new JokeCache();
 
 var firstJoke = repository.GetRandomJoke();

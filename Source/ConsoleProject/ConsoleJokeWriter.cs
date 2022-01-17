@@ -2,7 +2,7 @@ using ChuckNorrisJokes.Client.Domain;
 
 namespace ChuckNorrisJokes.ConsoleProject;
 
-internal sealed class ConsoleWriter : IConsoleWriter
+internal sealed class ConsoleJokeWriter : IJokeWriter
 {
     public void WriteCurrentJoke(ChuckNorrisJoke currentJoke, int currentIndex, int maxIndex)
     {

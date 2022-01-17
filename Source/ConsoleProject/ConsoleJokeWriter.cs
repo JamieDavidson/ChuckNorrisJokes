@@ -1,13 +1,21 @@
+using ChuckNorrisJokes.Client;
 using ChuckNorrisJokes.Client.Domain;
 
 namespace ChuckNorrisJokes.ConsoleProject;
 
 internal sealed class ConsoleJokeWriter : IJokeWriter
 {
-    public void WriteCurrentJoke(ChuckNorrisJoke currentJoke, int currentIndex, int maxIndex)
+    private readonly IJokeCache m_JokeCache;
+
+    public ConsoleJokeWriter(IJokeCache jokeCache)
+    {
+        m_JokeCache = jokeCache ?? throw new ArgumentNullException(nameof(jokeCache));
+    }
+
+    public void WriteCurrentJoke(ChuckNorrisJoke currentJoke)
     {
         Console.Clear();
-        Console.WriteLine($"Joke {currentIndex + 1} of {maxIndex}{Environment.NewLine}");
+        Console.WriteLine($"Joke {m_JokeCache.CurrentIndex + 1} of {m_JokeCache.JokeCount}{Environment.NewLine}");
 
         Console.WriteLine($"{currentJoke.Value}{Environment.NewLine}");
 

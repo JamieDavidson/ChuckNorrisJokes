@@ -4,12 +4,12 @@ using ChuckNorrisJokes.Client;
 using ChuckNorrisJokes.ConsoleProject;
 
 var repository = new JokeRepository("https://api.chucknorris.io/");
-var writer = new ConsoleJokeWriter();
 var cache = new JokeCache();
+var writer = new ConsoleJokeWriter(cache);
 
 var firstJoke = repository.GetRandomJoke();
 cache.AddJoke(firstJoke);
-writer.WriteCurrentJoke(firstJoke, cache.CurrentIndex, cache.JokeCount);
+writer.WriteCurrentJoke(firstJoke);
 
 while (true)
 {
@@ -23,13 +23,13 @@ while (true)
         case 'j':
             var joke = repository.GetRandomJoke();
             cache.AddJoke(joke);
-            writer.WriteCurrentJoke(joke, cache.CurrentIndex, cache.JokeCount);
+            writer.WriteCurrentJoke(joke);
             break;
         case 'p':
-            writer.WriteCurrentJoke(cache.PreviousJoke(), cache.CurrentIndex, cache.JokeCount);
+            writer.WriteCurrentJoke(cache.PreviousJoke());
             break;
         case 'n':
-            writer.WriteCurrentJoke(cache.NextJoke(), cache.CurrentIndex, cache.JokeCount);
+            writer.WriteCurrentJoke(cache.NextJoke());
             break;
         default:
             // TODO: Decide on behaviour, I suppose display a message to the user?

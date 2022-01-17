@@ -3,11 +3,13 @@
 using ChuckNorrisJokes.Client;
 using ChuckNorrisJokes.ConsoleProject;
 
-var repository = new JokeRepository("https://api.chucknorris.io/");
+const string apiUrl = "https://api.chucknorris.io/";
+
+var repository = new JokeRepository(apiUrl);
 var cache = new JokeCache();
 var writer = new ConsoleJokeWriter(cache);
 
-var firstJoke = repository.GetRandomJoke();
+var firstJoke = repository.GetRandomJoke().Result;
 cache.AddJoke(firstJoke);
 writer.WriteCurrentJoke(firstJoke);
 
@@ -21,7 +23,7 @@ while (true)
     switch (key.KeyChar)
     {
         case 'j':
-            var joke = repository.GetRandomJoke();
+            var joke = repository.GetRandomJoke().Result;
             cache.AddJoke(joke);
             writer.WriteCurrentJoke(joke);
             break;

@@ -11,5 +11,5 @@ public interface IJokeRepository
     /// <exception cref="JokeRepositoryFailureException">
     /// Failed to retrieve joke
     /// </exception>
-    ChuckNorrisJoke GetRandomJoke();
+    Task<ChuckNorrisJoke> GetRandomJoke();
 }

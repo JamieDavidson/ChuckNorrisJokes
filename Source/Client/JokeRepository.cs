@@ -13,18 +13,16 @@ public class JokeRepository : IJokeRepository
         m_ApiBaseAddress = apiBaseAddress ?? throw new ArgumentNullException(nameof(apiBaseAddress));
     }
 
-    public ChuckNorrisJoke GetRandomJoke()
+    public async Task<ChuckNorrisJoke> GetRandomJoke()
     {
         // Personal preference: I know it's recommended to reuse http clients because of fear of
         // socket exhaustion... but I've never once run in to it even in extremely high use applications
         //
         using var client = CreateHttpClient();
 
-
-        // TODO: Probably make this async, that might be something they'll look at?
         try
         {
-            var joke = client.GetFromJsonAsync<ChuckNorrisJoke>("/jokes/random").Result;
+            var joke = await client.GetFromJsonAsync<ChuckNorrisJoke>("/jokes/random");
 
             if (joke == null)
             {

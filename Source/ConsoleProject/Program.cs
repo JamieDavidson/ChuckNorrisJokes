@@ -22,9 +22,15 @@ while (true)
 {
     var key = Console.ReadKey();
 
-    // Cheeky hack - Overwrite last character written in the console
+    // Cheeky hack - Overwrite last character written in the console by moving caret back, writing empty space and
+    // then moving caret back again
     // Seeing the "j" written in the console while waiting for network responses was annoying me!
+    //
     Console.Write("\b \b");
+
+    // Classic dilemma, casing of user input! I think I'll rely on user input being lower case, as we have a concise
+    // set of instructions being displayed every repaint, although it would be nice to tell the user what was wrong,
+    // since 'J' does not equal 'j'
     switch (key.KeyChar)
     {
         case 'j':

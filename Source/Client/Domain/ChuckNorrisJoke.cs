@@ -1,11 +1,6 @@
 namespace ChuckNorrisJokes.Client.Domain;
 
-public class ChuckNorrisJoke
+public record ChuckNorrisJoke(string Value)
 {
-    public string Value { get; }
-
-    public ChuckNorrisJoke(string value)
-    {
-        Value = value ?? throw new ArgumentNullException(nameof(value));
-    }
+    public string Value { get; } = Value ?? throw new ArgumentNullException(nameof(Value));
 }

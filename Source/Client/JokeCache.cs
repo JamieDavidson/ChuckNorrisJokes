@@ -4,9 +4,9 @@ namespace ChuckNorrisJokes.Client;
 
 public sealed class JokeCache : IJokeCache
 {
-    // TODO: Consider turning in to a dictionary for duplicate checks!
-    // It's unlikely that we'll get a duplicate joke, since there are just _so many_ of them,
-    // but it may be worth doing if there's time
+    // In a real scenario, it would be worth turning this in to a dictionary, to aid with duplicate checks
+    // It's unlikely that we'll get a duplicate Chuck Norris joke, since there are just _so many_ of them,
+    // but that won't always be the case!
     private readonly ICollection<ChuckNorrisJoke> m_Jokes;
     public int CurrentIndex { get; private set; }
     public int JokeCount => m_Jokes.Count;

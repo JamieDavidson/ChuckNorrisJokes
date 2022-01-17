@@ -2,7 +2,7 @@ using ChuckNorrisJokes.Client.Domain;
 
 namespace ChuckNorrisJokes.Client;
 
-internal sealed class JokeCache : IJokeCache
+public sealed class JokeCache : IJokeCache
 {
     // TODO: Consider turning in to a dictionary for duplicate checks!
     // It's unlikely that we'll get a duplicate joke, since there are just _so many_ of them,

@@ -5,7 +5,7 @@ Console application that retrieves Chuck Norris jokes from https://api.chucknorr
 User Input controls
 
 ```
-j - Get a random joke#
+j - Get a random joke
 p - Go back to previously cached joke
 n - Go to next joke
 ```

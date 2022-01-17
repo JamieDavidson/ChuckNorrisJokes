@@ -19,6 +19,7 @@ public sealed class JokeCache : IJokeCache
     public void AddJoke(ChuckNorrisJoke joke)
     {
         m_Jokes.Add(joke);
+        m_CurrentIndex = m_Jokes.Count - 1;
     }
 
     public ChuckNorrisJoke NextJoke()

@@ -5,12 +5,31 @@ using ChuckNorrisJokes.ConsoleProject;
 
 var repository = new JokeRepository("https://api.chucknorris.io/");
 var writer = new ConsoleWriter();
+var cache = new JokeCache();
 
-writer.WriteCurrentJoke(repository.GetRandomJoke());
+var firstJoke = repository.GetRandomJoke();
+cache.AddJoke(firstJoke);
+writer.WriteCurrentJoke(firstJoke);
 
 while (true)
 {
-    // TODO: Read individual key, j = new joke, p = previous joke, n = next joke in cache
-    Console.ReadKey();
-    writer.WriteCurrentJoke(repository.GetRandomJoke());
+    var key = Console.ReadKey();
+
+    switch (key.KeyChar)
+    {
+        case 'j':
+            var joke = repository.GetRandomJoke();
+            cache.AddJoke(joke);
+            writer.WriteCurrentJoke(joke);
+            break;
+        case 'p':
+            writer.WriteCurrentJoke(cache.PreviousJoke());
+            break;
+        case 'n':
+            writer.WriteCurrentJoke(cache.NextJoke());
+            break;
+        default:
+            // TODO: Decide on behaviour, I suppose display a message to the user?
+            break;
+    }
 }
